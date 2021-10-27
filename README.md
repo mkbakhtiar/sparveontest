@@ -12,7 +12,7 @@ Step:
 5. Pada file "backend" buka new terminal dan ketikan "node server.js"
 6. ketikan di browser localhost:3000 atau biasanya sudah run sendiri
 
-jadi itu beberapa step cara menjalankan hasil test internship di Sparveon
+jadi itu beberapa step cara menjalankan hasil test internship di Sparveon <br>
 saya sertakan juga versi videonya: https://youtu.be/gnZn0WgYjUc
 
 Terimakasih :)
