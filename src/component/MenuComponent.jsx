@@ -1,60 +1,48 @@
-import React, { useState } from 'react';
+import React, { useState, useContext  } from 'react';
 import {
     Collapse,
     Navbar,
     NavbarToggler,
     NavbarBrand,
     Nav,
-    NavItem,
-    NavLink,
-    UncontrolledDropdown,
-    DropdownToggle,
-    DropdownMenu,
-    DropdownItem,
-    NavbarText,
-    Container
+    Button,
+    NavbarText
 } from 'reactstrap';
 
+import { AuthContext } from '../App';
+
 function MenuComponent() {
+    const {dispatch} = useContext(AuthContext)
     const [isOpen, setIsOpen] = useState(false);
 
     const toggle = () => setIsOpen(!isOpen);
 
     return (
-        <Container>
-            <Navbar color="light" light expand="md">
-                <NavbarBrand href="/">Sparveon Test</NavbarBrand>
+        <div>
+            <Navbar color="light" light expand="md" style={{paddingLeft:'25px',paddingRight:'25px'}}>
+                <NavbarBrand href="/">Sparveon Test Application</NavbarBrand>
                 <NavbarToggler onClick={toggle} />
                 <Collapse isOpen={isOpen} navbar>
-                    <Nav className="mr-auto" navbar>
-                        <NavItem>
-                            <NavLink href="/components/">Components</NavLink>
-                        </NavItem>
-                        <NavItem>
-                            <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
-                        </NavItem>
-                        <UncontrolledDropdown nav inNavbar>
-                            <DropdownToggle nav caret>
-                                Options
-                            </DropdownToggle>
-                            <DropdownMenu right>
-                                <DropdownItem>
-                                    Option 1
-                                </DropdownItem>
-                                <DropdownItem>
-                                    Option 2
-                                </DropdownItem>
-                                <DropdownItem divider />
-                                <DropdownItem>
-                                    Reset
-                                </DropdownItem>
-                            </DropdownMenu>
-                        </UncontrolledDropdown>
+                    <Nav className="justify-content-end" style={{ width: "100%" }}>
+                        {!localStorage.getItem('isAuth') ?
+                        <NavbarText>V. 1.0.0</NavbarText>
+                        :
+                        <NavbarText>
+                            <Button color="success"
+                                onClick={() =>
+                                    dispatch({
+                                        type: "LOGOUT"
+                                    })}>
+
+                                LOGOUT
+
+                            </Button>
+                        </NavbarText>
+                        }
                     </Nav>
-                    <NavbarText>Simple Text</NavbarText>
                 </Collapse>
             </Navbar>
-        </Container>
+        </div>
     )
 }
 

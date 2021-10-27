@@ -17,13 +17,14 @@ const initState = {
 const reducer = (state, action) => {
   switch (action.type) {
     case "LOGIN":
-        localStorage.setItem("user", JSON.stringify(action.payload.user))
+        localStorage.setItem("user", JSON.stringify(action.payload.curntUser))
         localStorage.setItem("token", JSON.stringify(action.payload.token))
+        localStorage.setItem("isAuth", true)
 
         return {
           ...state,
           isAuth:true,
-          user:action.payload.user,
+          user:action.payload.curntUser,
           token:action.payload.token,
         }
 
@@ -32,9 +33,9 @@ const reducer = (state, action) => {
           return{
             ...state,
             isAuth:false,
-            user:action.payload.user
+            user:null
           }
-  
+
     default:
       return state;
   }
@@ -42,6 +43,7 @@ const reducer = (state, action) => {
 
 function App() {
   const [state, dispatch] = useReducer(reducer, initState)
+
   return (
     <BrowserRouter>
       <Switch>
@@ -51,15 +53,15 @@ function App() {
         }}>
           <MenuComponent />
 
-          {!state.isAuth ?
+          {!localStorage.getItem('isAuth') ?
           <Redirect to={{pathname:"/"}}  />
           :
           <Redirect to={{pathname:"/dashboard"}} />
           }
 
           <Route exact path="/" component={LoginComponent} />
-          <Route exact path="/dashboard" componen={DashboardComponent} />
-          <Route exact path="/register" componen={RegisterComponent} />
+          <Route exact path="/dashboard" component={DashboardComponent} />
+          <Route exact path="/register" component={RegisterComponent} />
 
         </AuthContext.Provider>
       </Switch>
