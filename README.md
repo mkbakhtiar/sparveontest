@@ -6,7 +6,7 @@ Step:
 1. Download di github (https://github.com/mkbakhtiar/sparveontest) dan buka file "frontend" di vscode
 2. Download di github (https://github.com/mkbakhtiar/sparveonservicestest) dan buka file "backend" (services rest api) di vscode
 
-3. Buat database mysql dengan nama "sparveontest" dan download file sqlnya di file ini sparveontest.sql, kemudian dump.
+3. Buat database mysql dengan nama "sparveontest" dan download file sqlnya di file ini sparveontest.sql, kemudian import.
 
 4. Pada file "frontend" buka new terminal dan ketikan "npm start"
 5. Pada file "backend" buka new terminal dan ketikan "node server.js"
