@@ -1,10 +1,11 @@
-import React, { Fragment } from 'react'
-import { Button, Form, Row, Col, FormGroup, Label, Input, FormText } from 'reactstrap';
+import React, { Fragment,createContext, useContext, useState } from 'react'
+import { Button, Form, Row, Col, FormGroup, Label, Input, Container } from 'reactstrap';
 
 import axios from 'axios'
 import { CardImg } from 'react-bootstrap';
 const qs = require('querystring')
 const api = 'http://localhost:3001'
+export const AuthContext = createContext()
 
 function LoginComponent() {
 
@@ -21,7 +22,7 @@ function LoginComponent() {
 
     const handleInputChange = event => {
         setData({
-            ...state,
+            ...data,
             [event.target.name]: event.target.value
         })
     }
@@ -45,7 +46,7 @@ function LoginComponent() {
             }
         }
 
-        axios.post(api = '/auth/api/v1/login', qs.stringify(requestBody, config))
+        axios.post(api + '/auth/api/v1/login', qs.stringify(requestBody, config))
             .then(res => {
                 if (res.data.success === true) {
                     dispatch({

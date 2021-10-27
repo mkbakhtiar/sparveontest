@@ -1,10 +1,11 @@
-import React, {useReducer, createContect, Fragment} from 'react';
+import React, {useReducer, createContext} from 'react';
 import { BrowserRouter, Switch, Redirect, Route } from 'react-router-dom';
 import MenuComponent from './component/MenuComponent';
 import LoginComponent from './component/LoginComponent';
 import RegisterComponent from './component/RegisterComponent';
 import DashboardComponent from './component/DashboardComponent';
 
+export const AuthContext = createContext()
 
 //State Iniliatitaion
 const initState = {
