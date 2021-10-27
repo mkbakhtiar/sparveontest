@@ -66,38 +66,33 @@ function LoginComponent() {
     }
 
     return (
-        <Fragment>
-            <Container>
-                <br />
-                <Row>
-                    <Col>
-                        <CardImg width="100%" src="https://sparveon.com/wp-content/themes/sparveon/images/sparveon_logo.png" />
-                    </Col>
-                    <Col>
-                        <Form onSubmit={handleFormSubmit}>
-                            <FormGroup>
-                                <Label for="exampleEmail">Username</Label>
-                                <Input type="email" value={data.username} onChange={handleInputChange} name="username" id="exampleEmail" placeholder="with a placeholder" />
-                            </FormGroup>
-                            <FormGroup>
-                                <Label for="examplePassword">Password</Label>
-                                <Input type="password"  value={data.password} onChange={handleInputChange} name="password" id="examplePassword" placeholder="password placeholder" />
-                            </FormGroup>
+        <Container>
+            <Row className="justify-content-center">
+                <Col xs="5" sm="4" md="3" lg="3" xl="3">
+                    <CardImg style={{width:'100px'}} width="100" src="https://pbs.twimg.com/profile_images/1182025846803951617/g5KcnuNw.jpg" />
+                    <Form onSubmit={handleFormSubmit}>
+                        <FormGroup>
+                            <Label for="exampleEmail">Username</Label>
+                            <Input type="email" value={data.username} onChange={handleInputChange} name="username" id="exampleEmail" placeholder="with a placeholder" />
+                        </FormGroup>
+                        <FormGroup>
+                            <Label for="examplePassword">Password</Label>
+                            <Input type="password"  value={data.password} onChange={handleInputChange} name="password" id="examplePassword" placeholder="password placeholder" />
+                        </FormGroup>
 
-                            {data.errorMsg && (
-                                <div className="alert alert-danger" role="alert">    
-                                    {data.errorMsg}
-                                </div>
-                            )}
+                        {data.errorMsg && (
+                            <div className="alert alert-danger" role="alert">    
+                                {data.errorMsg}
+                            </div>
+                        )}
 
-                            <Button disabled={data.isSubmit}>
-                                {data.isSubmit ? ("Proses Login...") : ("Login")}
-                            </Button>
-                        </Form>
-                    </Col>
-                </Row>
-            </Container>
-        </Fragment>
+                        <Button disabled={data.isSubmit}>
+                            {data.isSubmit ? ("Proses Login...") : ("Login")}
+                        </Button>
+                    </Form>
+                </Col>
+            </Row>
+        </Container>
     )
 }
 
