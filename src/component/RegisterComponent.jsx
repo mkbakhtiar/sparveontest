@@ -1,9 +1,9 @@
-import React from 'react'
+import React, {Fragment} from 'react'
 
 function RegisterComponent() {
     return (
         <div>
-            <h1>Register</h1>
+            <Fragment>Register</Fragment>
         </div>
     )
 }

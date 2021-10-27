@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 
 function MenuComponent() {
     return (
         <div>
-            <h1>Menu</h1>
+            <Fragment>Menu</Fragment>
         </div>
     )
 }

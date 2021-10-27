@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 
 function DashboardComponent() {
     return (
         <div>
-            <h1>Dashboard</h1>
+            <Fragment>Dashboard</Fragment>
         </div>
     )
 }
